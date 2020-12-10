@@ -1,0 +1,49 @@
+@import "../../mixins.scss";
+
+.call-list {
+  @include box-wrapper;
+  align-items: center;
+  text-align: left;
+  &__table {
+    border: 2px solid grey;
+    border-collapse: collapse;
+
+    &__header {
+      padding: 2px 5px;
+      border-bottom: 2px solid grey;
+      user-select: none;
+      &:nth-child(2n) {
+        border-left: 2px solid grey;
+        border-right: 2px solid grey;
+      }
+    }
+
+    &__cell {
+      border-bottom: 2px solid grey;
+      &:nth-child(2n) {
+        border-left: 2px solid grey;
+        border-right: 2px solid grey;
+      }
+      padding: 2px 5px;
+    }
+
+    &__name {
+      min-width: 250px;
+    }
+
+    &__number {
+      min-width: 130px;
+    }
+
+    &__time {
+      min-width: 40px;
+    }
+  }
+}
+
+.calls-filters {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}

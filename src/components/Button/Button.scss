@@ -1,0 +1,22 @@
+.button {
+  color: #444444;
+  background: #f3f3f3;
+  border: 1px #dadada solid;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 9pt;
+  outline: none;
+  margin-top: 5px;
+
+  &:hover {
+    border: 1px #c6c6c6 solid;
+    box-shadow: 1px 1px 1px #eaeaea;
+    color: #333333;
+    background: #f7f7f7;
+  }
+
+  &:active {
+    box-shadow: inset 1px 1px 1px #dfdfdf;
+  }
+}

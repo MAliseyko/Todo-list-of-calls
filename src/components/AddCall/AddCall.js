@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addCall } from "../../redux/actionCreators";
-import "./AddCall.css";
+import "./AddCall.scss";
 
 const data = {
   name: "",
@@ -41,8 +41,8 @@ function AddCall() {
             name="name"
             className="add-call__info"
             placeholder="Name"
-            maxlength="30"
-          ></input>
+            maxLength="30"
+          />
           <input
             required
             name="phoneNumber"
@@ -50,17 +50,18 @@ function AddCall() {
             placeholder="Phone number"
             type="tel"
             pattern="([+]|[0]{2})\(?\d{3}\)? ?-?\d{3} ?\d{3} ?\d{3} ?"
-          ></input>
+          />
           <input
-            required
+            require
             name="time"
             className="add-call__info"
             placeholder="Time"
             pattern="\d{2}:\d{2}"
-          ></input>
-          <div>
-            <span>Add</span>
-            <button type="submit">+</button>
+          />
+          <div className="add-call__submit">
+            <button className="add-call__submit__button" type="submit">
+              Add
+            </button>
           </div>
         </form>
       </div>

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import AddCall from "./components/AddCall/AddCall";
 import CallList from "./components/CallList/CallList";
 import NextCall from "./components/NextCall/NextCall";
@@ -8,12 +8,12 @@ import { store } from "./redux/configureStore";
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <NextCall></NextCall>
-        <div>
-          <AddCall></AddCall>
-          <CallList></CallList>
+      <div className="app">
+        <div className="wrapper">
+          <NextCall />
+          <AddCall />
         </div>
+        <CallList />
       </div>
     </Provider>
   );

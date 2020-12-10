@@ -1,21 +1,30 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { getCurrentTime } from "../../helpers/date";
 import { deleteCall } from "../../redux/actionCreators";
+import Button from "../Button/Button";
 
 function CallItem({ call }) {
   const dispatch = useDispatch();
-  const currentDate = new Date();
-  const currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+  const currentTime = getCurrentTime();
   const handleDeleteCall = () => {
     dispatch(deleteCall(call.id));
   };
   return (
     <tr>
-      <td>{call.name}</td>
-      <td>{call.phoneNumber}</td>
-      <td>{call.time}</td>
-      <td onClick={handleDeleteCall}>delete</td>
-      <td>
+      <td className="call-list__table__cell call-list__table__name">
+        {call.name}
+      </td>
+      <td className="call-list__table__cell call-list__table__number">
+        {call.phoneNumber}
+      </td>
+      <td className="call-list__table__cell call-list__table__time">
+        {call.time}
+      </td>
+      <td className="call-list__table__cell">
+        <Button onClick={handleDeleteCall}>Delete</Button>
+      </td>
+      <td className="call-list__table__cell">
         <input
           type="checkbox"
           checked={currentTime > call.time}

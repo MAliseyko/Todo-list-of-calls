@@ -1,32 +1,60 @@
-import React from 'react';
-import './CallList.css';
+import React from "react";
+import Button from "../Button/Button";
+import CallItem from "./CallItem";
+import "./CallList.scss";
+import { useSortedCalls } from "./Hook";
+
+const getSortIcon = (sortOrder, name) => {
+  if (sortOrder[0] !== name) {
+    return "";
+  }
+
+  return sortOrder[1] === "asc" ? "▲" : "▼";
+};
 
 function CallList() {
-    return (
-        <div className="call-list">
-            <table border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>Phone number</th>
-                    <th>Time</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>Name Surname</td>
-                    <td>00420 777 888 999</td>
-                    <td>9:20</td>
-                    <td>delete</td>
-                    <td><input type="checkbox"></input></td>
-                </tr>
-            </table>
-            <div className="calls-filters">
-                <button>All</button>
-                <button>Next</button>
-                <button>Finished</button>
-            </div>
-        </div>
-    )
+  const {
+    sortOrder,
+    setFilter,
+    handleSortOrderChange,
+    sortedCalls,
+  } = useSortedCalls();
+  console.log(sortOrder);
+  return (
+    <div className="call-list">
+      <table className="call-list__table">
+        <tbody>
+          <tr>
+            <th
+              className="call-list__table__header"
+              onClick={() => handleSortOrderChange("name", sortOrder[1])}
+            >
+              Name
+              {getSortIcon(sortOrder, "name")}
+            </th>
+            <th className="call-list__table__header">Phone number</th>
+            <th
+              className="call-list__table__header"
+              onClick={() => handleSortOrderChange("time", sortOrder[1])}
+            >
+              Time
+              {getSortIcon(sortOrder, "time")}
+            </th>
+            <th className="call-list__table__header"></th>
+            <th className="call-list__table__header"></th>
+          </tr>
+          {sortedCalls.map((call) => (
+            <CallItem call={call} key={call.id} />
+          ))}
+        </tbody>
+      </table>
+      <div className="calls-filters">
+        <Button onClick={() => setFilter("all")}>All</Button>
+        <Button onClick={() => setFilter("next")}>Next</Button>
+        <Button onClick={() => setFilter("finished")}>Finished</Button>
+      </div>
+    </div>
+  );
 }
 
-export default CallList
+export default CallList;

@@ -1,0 +1,30 @@
+@import "../../mixins.scss";
+
+.next-call {
+  @include box-wrapper;
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    border: 2px solid grey;
+    border-radius: 8px;
+  }
+
+  &__name {
+    min-width: 250px;
+  }
+
+  &__number {
+    min-width: 130px;
+  }
+
+  &__time {
+    min-width: 40px;
+  }
+}

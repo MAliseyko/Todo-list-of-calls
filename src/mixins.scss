@@ -1,0 +1,11 @@
+@mixin box-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  width: 600px;
+  margin: 0 2rem 2rem;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 6px 20px rgba(109, 104, 139, 0.2);
+}
