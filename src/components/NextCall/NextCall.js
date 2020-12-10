@@ -1,17 +1,22 @@
-import React from 'react';
-import './NextCall.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import { getNextCall } from "../../redux/selectors";
+import "./NextCall.css";
 
 function NextCall() {
-    return (
-        <div className="next-call">
-            <h3>Next call</h3>
-            <div className="next-call__details">
-                <span className="next-call__info">Name Surname</span>
-                <span className="next-call__info">00420 222 333 444</span>
-                <span className="next-call__info">12:40</span>
-            </div>
-        </div>
-    )
+  const nextCall = useSelector(getNextCall);
+  return (
+    <div className="next-call">
+      <h3>Next call</h3>
+      <div className="next-call__details">
+        <span className="next-call__info">{nextCall?.name || "Name"}</span>
+        <span className="next-call__info">
+          {nextCall?.phoneNumber || "Phone Number"}
+        </span>
+        <span className="next-call__info">{nextCall?.time || "time"}</span>
+      </div>
+    </div>
+  );
 }
 
-export default NextCall
+export default NextCall;
