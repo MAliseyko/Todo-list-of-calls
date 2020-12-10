@@ -56,7 +56,7 @@ function AddCall() {
             name="time"
             className="add-call__info"
             placeholder="Time"
-            pattern="\d{2}:\d{2}"
+            type="time"
           />
           <div className="add-call__submit">
             <button className="add-call__submit__button" type="submit">
