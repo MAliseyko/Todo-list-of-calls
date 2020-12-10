@@ -52,7 +52,7 @@ function AddCall() {
             pattern="([+]|[0]{2})\(?\d{3}\)? ?-?\d{3} ?\d{3} ?\d{3} ?"
           />
           <input
-            require
+            required
             name="time"
             className="add-call__info"
             placeholder="Time"
