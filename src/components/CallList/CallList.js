@@ -19,7 +19,6 @@ function CallList() {
     handleSortOrderChange,
     sortedCalls,
   } = useSortedCalls();
-  console.log(sortOrder);
   return (
     <div className="call-list">
       <table className="call-list__table">
